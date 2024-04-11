@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>1DAED098-2765-4EE5-9925-3E30D7A70879</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Unicorn.ApiService\Unicorn.ApiService.csproj"/>
+        <ProjectReference Include="..\Unicorn.Web\Unicorn.Web.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0-preview.5.24201.12"/>
+        <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.0-preview.5.24201.12"/>
+    </ItemGroup>
+
+</Project>
