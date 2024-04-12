@@ -29,7 +29,7 @@ public class AuthenticationService : IAuthenticationService
 		var user = await _weatherApiClient.LoginAsync(username, password);
 
 		// If the user is authenticated, sign them in
-		_cookieService.Set("Token", user.Token);
+		_cookieService.Set(key: Constants.AuthCookieToken, value: user.Token);
 
 		var autheduser = JwtParser.ParseJwt(user.Token);
 
@@ -60,5 +60,3 @@ public static class JwtParser
 		return user;
 	}
 }
-
-public record LoginResult(string? Token, string? RefreshToken, DateTime? RefreshTokenExpiryTime);

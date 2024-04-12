@@ -1,6 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject ICurrentUserService CurrentUserService
+
+<div class="top-row ps-3 navbar navbar-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="">Unicorn</a>
+		<a class="navbar-brand" href="">@(User == null ? "Unicorn" : User.Name)</a>
 	</div>
 </div>
 
@@ -27,3 +29,17 @@
 		</div>
 	</nav>
 </div>
+
+@code {
+	private AuthenticatedUser? User { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		var user = CurrentUserService.GetAuthenticatedUser();
+
+		User = user;
+
+		await base.OnInitializedAsync();
+	}
+
+}

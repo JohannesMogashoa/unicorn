@@ -1,0 +1,10 @@
+@code {
+	[Inject] private NavigationManager NavigationManager { get; set; }
+
+	protected override Task OnInitializedAsync()
+	{
+		NavigationManager.NavigateTo("login", forceLoad: true);
+		return Task.CompletedTask;
+	}
+
+}
